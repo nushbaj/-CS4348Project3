@@ -43,4 +43,7 @@ The Btree is responsible for creating the Btree and allocating bytes of memory t
 Create two classes BtreeNode and Btree
     I will work on the insert and create methods first within the Btree class
     I will attempt to get started on the driver file
+##Update 8:51
+I have created a basic Btree insert command. I will work on a basic create command to and may work the menu for those two on the driver file
+
 
