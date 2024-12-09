@@ -32,3 +32,15 @@ Project uses sessions and each session to be logged in this file
 Create git repository, devlog.md, README.md
 use python
 multiple files: main driver file, B tree file
+
+#End Session
+
+#Session 2: 12/7/24
+##Initial Thoughts:
+I have thought about starting on the B tree first since the driver file builds on top of that.
+The Btree is responsible for creating the Btree and allocating bytes of memory to each node and header
+##Plan:
+Create two classes BtreeNode and Btree
+    I will work on the insert and create methods first within the Btree class
+    I will attempt to get started on the driver file
+
