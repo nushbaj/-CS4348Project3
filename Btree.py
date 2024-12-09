@@ -75,3 +75,6 @@ class BTreeNode:
             for c in self.children:
                 c.display(node + 1)
 
+if__name__ == "main":
+main()
+
