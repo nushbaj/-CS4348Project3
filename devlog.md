@@ -45,7 +45,15 @@ Create two classes BtreeNode and Btree
     I will attempt to get started on the driver file
 ##Update 8:51
 I have created a basic Btree insert command. I will work on a basic create command to and may work the menu for those two on the driver file
-##9:42 
+##Update 9:42 
 new driver file created
+##Update 10:04
+I have made the driver functions more modular and created a while loop that will loop with all the commands until the user decides to quit
+##Update 11:02
+I worked on the header format, ensuring that it can be encoded to and decoded from bytes.
+I made two methods to convert the data into bytes and from bytes
+##Update 11:49
+I have a method to check for file in the create method
+
 
 

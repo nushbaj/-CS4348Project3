@@ -1,5 +1,36 @@
-class BTreeClass:
+import struct
+
+class BTree:
     
+    class HeaderFormat:
+        def __init__(self, rootID=0, nextAvailableID=1):
+            self.magicNumber = b"4337PRJ3"
+            self.rootID = rootID
+            self.nextAvailableID = nextAvailableID
+
+        #This method serves in converting each piece of header data into bytes
+        def packToBytes(self):
+
+            # Magic Number is in Byte literal
+            magicNumberData = self.magicNumber("utf-8")
+
+            #RootID and nextAvailableID is in integer
+            rootIDData = self.rootID.to_bytes(8, 'big')
+            nextAvailableIDData = self.nextAvailableID.to_bytes(8, 'big')
+            headerData =  magicNumberData + rootIDData + nextAvailableIDData
+
+            #Data must be stored as a 512 block
+            padded_headerData = headerData + b'\x00' * (512 - len(headerData))
+            return padded_headerData
+
+        #This method will take reconvert the header data into its respective data types
+        def unpackFromBytes(data):
+            magicNumber = data[:8]
+            rootID = int.from_bytes(data[8:16], 'big')
+            nextAvailableID = int.from_bytes(data[16:24], 'big')
+
+            #Header Object created with the reconverted data
+            return HeaderFormat(magicNumber, rootID, nextAvailableID)
     #Creating root and giving the minimal 10 degree
     def __init__(self, degree = 10):
         self.rootNode = BTreeNode(True)
@@ -67,14 +98,5 @@ class BTreeNode:
         self.leaf = leaf
         self.keys = []
         self.children = []
-        
-    #displaying the tree by the keys of each node
-    def display(self, node=0):
-        print(f"Level {node}: {self.keys}")
-        if not self.leaf:
-            for c in self.children:
-                c.display(node + 1)
 
-if__name__ == "main":
-main()
 
